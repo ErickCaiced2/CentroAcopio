@@ -1,45 +1,23 @@
 /**
- * Sample React Native App
- * https://github.com/facebook/react-native
+ * App 3 - Centro de Acopio.
+ * Recibe los residuos ya recolectados por App 2 (Logística) vía Android
+ * Intent y confirma su recepción final en la planta.
  *
  * @format
  */
 
-import { NewAppScreen } from '@react-native/new-app-screen';
-import { StatusBar, StyleSheet, useColorScheme, View } from 'react-native';
-import {
-  SafeAreaProvider,
-  useSafeAreaInsets,
-} from 'react-native-safe-area-context';
+import { StatusBar } from 'react-native';
+
+import DashboardScreen from './src/screens/DashboardScreen';
+import { colors } from './src/theme/colors';
 
 function App() {
-  const isDarkMode = useColorScheme() === 'dark';
-
   return (
-    <SafeAreaProvider>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <AppContent />
-    </SafeAreaProvider>
+    <>
+      <StatusBar barStyle="light-content" backgroundColor={colors.primary} />
+      <DashboardScreen />
+    </>
   );
 }
-
-function AppContent() {
-  const safeAreaInsets = useSafeAreaInsets();
-
-  return (
-    <View style={styles.container}>
-      <NewAppScreen
-        templateFileName="App.tsx"
-        safeAreaInsets={safeAreaInsets}
-      />
-    </View>
-  );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
 
 export default App;

@@ -22,6 +22,12 @@
             <action android:name="android.intent.action.MAIN" />
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
+
+        <!-- Recibe el residuo procesado enviado por App 2 (Logística) -->
+        <intent-filter>
+            <action android:name="com.ecoruta.recycling.ACTION_RECIBIR_RESIDUO_PROCESADO" />
+            <category android:name="android.intent.category.DEFAULT" />
+        </intent-filter>
       </activity>
     </application>
 </manifest>

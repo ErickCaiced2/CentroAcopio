@@ -74,6 +74,10 @@ def jscFlavor = 'io.github.react-native-community:jsc-android:2026004.+'
 
 android {
     ndkVersion rootProject.ext.ndkVersion
+    // El NDK dentro del SDK tiene un espacio en la ruta ("ERICK CAICEDO"), lo que
+    // rompe el enlazado de libc++ en el toolchain de Windows (ld.lld). Se usa una
+    // copia del mismo NDK en una ruta sin espacios como workaround.
+    ndkPath "C:/Android/ndk/27.1.12297006"
     buildToolsVersion rootProject.ext.buildToolsVersion
     compileSdk rootProject.ext.compileSdkVersion
 

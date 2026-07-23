@@ -1,5 +1,6 @@
 package com.ecoruta.recyclingapp
 
+import android.content.Intent
 import com.facebook.react.ReactActivity
 import com.facebook.react.ReactActivityDelegate
 import com.facebook.react.defaults.DefaultNewArchitectureEntryPoint.fabricEnabled
@@ -19,4 +20,11 @@ class MainActivity : ReactActivity() {
    */
   override fun createReactActivityDelegate(): ReactActivityDelegate =
       DefaultReactActivityDelegate(this, mainComponentName, fabricEnabled)
+
+  // launchMode="singleTask" reutiliza esta Activity; actualizamos el intent
+  // activo para que IntentModule.getInitialResiduo() vea el residuo nuevo.
+  override fun onNewIntent(intent: Intent) {
+    super.onNewIntent(intent)
+    setIntent(intent)
+  }
 }
